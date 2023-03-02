@@ -1,9 +1,12 @@
 package com.corsojava.springboot.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +24,9 @@ public class Foto {
 	private String tag;
 	
 	private boolean visibile;
+	
+	@ManyToMany()
+	private List<Categoria> categorias;
 
 	public Integer getId() {
 		return id;
