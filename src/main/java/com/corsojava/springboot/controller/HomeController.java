@@ -16,7 +16,7 @@ public class HomeController {
 	
 	@GetMapping("/testTLS")
 	public String testTLS(Authentication auth) {
-		System.out.println("Login OK -- nome = " + auth.getName());
+//		System.out.println("Login OK -- nome = " + auth.getName());
 		return "testTLS";
 	}
 

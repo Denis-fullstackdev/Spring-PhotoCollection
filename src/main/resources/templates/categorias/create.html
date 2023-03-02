@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link th:replace="~{fragments :: head}"></link>
+	<title>Inserisci nuova Categoria</title>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div th:replace="~{fragments :: navbar('createCategoria')}"></div>
+		
+		<h2>Inserisci Categoria</h2>
+
+		<form id="categoria-form" th:object="${categoria}" th:action="@{/categorias/create}" method="post">
+			
+			<label for="nome">Nome</label>
+			<input type="text" id="nome" th:field="*{nome}">
+	
+			<input type="submit">
+			
+		</form>
+		
+		<a th:href="@{/categorias}">Torna alla lista categorie</a>
+	</div>
+	
+</body>
+
+</html>

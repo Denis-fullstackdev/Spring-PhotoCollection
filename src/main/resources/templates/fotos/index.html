@@ -2,13 +2,62 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Title test</title>
+	<link th:replace="~{fragments :: head}"></link>
+	<title>Index Foto</title>
 </head>
 
 <body>
 
-	<h1>TEST</h1>
+	<div class="container">
+		
+		<div th:replace="~{fragments :: navbar('fotos')}"></div>
+	
+		<h1>Collezione delle foto</h1>
+		
+		<form action="/fotos">
+			<label>Filtra foto: </label>
+			<input type="text" name="keyword">
+			<input type="submit">
+		</form>
+		
+		<h3><a th:href="@{'fotos/create'}" sec:authorize="hasAuthority('ADMIN')">Inserisci nuova foto</a></h3>
+		
+		<h2 th:if="${fotos.size()==0}">
+			Nessuna foto trovata.
+		</h2>
+		<table class="table table-striped table-bordered" th:unless="${fotos.size()==0}">
+		  <thead>
+		    <tr>
+		      <th scope="col">ID</th>
+		      <th scope="col">Titolo</th>
+		      <th scope="col">Tag</th>
+		      <th scope="col">Url</th>
+		      <th scope="col">Visibile</th>
+		      <th scope="col" sec:authorize="hasAuthority('ADMIN')">MODIFICA</th>
+		      <th scope="col" sec:authorize="hasAuthority('ADMIN')">ELIMINA</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="foto : ${fotos}">
+		      <th scope="row" th:text="${foto.id}"></th>
+		      <td><a th:href="@{'fotos/'+${foto.id}}" th:text="${foto.titolo}"></a></td>
+		      <td th:text="${foto.tag}"></td>
+		      <td th:text="${foto.url}"></td>
+		      <td th:text="${foto.visibile}"></td>
+		      <td sec:authorize="hasAuthority('ADMIN')">
+		      	<a th:href="@{'/fotos/edit/' + ${foto.id} }">Modifica</a>
+		      </td>
+		      <td sec:authorize="hasAuthority('ADMIN')">
+		      	<form action="#" th:action="@{'/fotos/delete/' + ${foto.id} }" method="post">
+					<button class="btn btn-danger" type="submit" id="submitButton">
+						Elimina
+					</button>
+				</form>
+		      </td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div>
 	
 </body>
 

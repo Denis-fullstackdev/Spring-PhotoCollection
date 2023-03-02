@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+<!--     HEAD + BOOTSTRAP 	-->
+	<th:block th:fragment="head">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=devide-width, initial-scale=1.0">
+		<!-- Bootstrap CSS -->
+    	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+    	<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}" defer></script>
+    </th:block>
+    
+    
+<!--     NAVBAR 	-->
+    <ul th:fragment="navbar(page)" class="nav nav-tabs d-flex align-items-center">
+		<li class="nav-item">
+			<a class="nav-link pe-5" th:href="@{/fotos}" th:classAppend="${page=='fotos'}? 'disabled bg-primary text-light' : 'border active'">Lista Foto</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link m-2" sec:authorize="hasAuthority('ADMIN')" th:href="@{/categorias}" th:classAppend="${page=='categorias'}? 'disabled bg-primary text-light' : 'border active'">Lista Categorie</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link m-2" th:href="@{/logout}" th:classAppend="'border active'">LOGOUT</a>
+		</li>
+	</ul>
+	
+</body>
+
+</html>

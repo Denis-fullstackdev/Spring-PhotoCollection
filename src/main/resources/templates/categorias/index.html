@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link th:replace="~{fragments :: head}"></link>
+	<title>Index Categorie</title>
+</head>
+
+<body>
+
+	<div class="container">
+		
+		<div th:replace="~{fragments :: navbar('categorias')}"></div>
+	
+		<h1>Elenco Categorie</h1>
+		
+		<a th:href="@{/categorias/create}">Inserisci nuova categoria</a>
+		
+		<table class="table table-striped table-bordered">
+		  <thead>
+		    <tr>
+		      <th scope="col">ID</th>
+		      <th scope="col">Nome</th>
+		      <th scope="col">MODIFICA</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="categoria : ${elencoCategorie}">
+		      <th scope="row" th:text="${categoria.id}"></th>
+<!-- 		      <td><a th:href="@{'/categorias/'+${categoria.id}}" th:text="${categoria.nome}"></a></td> -->
+		      <td>[[ ${categoria.nome} ]]</td>
+		      <td>
+		      	<a th:href="@{'/categorias/edit/' + ${categoria.id} }">Edit</a>
+		      </td>
+<!-- 		      <td><a th:href="@{'ingredienti/delete/'+${ingrediente.id}}">CANCELLA</a></td> -->
+		    </tr>
+		  </tbody>
+		</table>
+		
+	</div>
+	
+</body>
+
+</html>

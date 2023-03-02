@@ -9,17 +9,24 @@
 	<body>
 	
 		<div sec:authorize="isAuthenticated()">
-			TEST: USER AUTENTICATO!!
+			TEST AUTENTICATO: TRUE
 		</div>
+		
 		<div sec:authorize="hasAuthority('ADMIN')">
-			TEST: ADMIN AUTENTICATO!!!
+			TEST AUTHORITY: ADMIN
 		</div>
+		
 		<div sec:authorize="hasAuthority('USER')">
-			TEST: SOLO USER (non autenticato?)
+			TEST AUTHORITY: USER
 		</div>
-	
-		User autenticato: <span sec:authentication="name">xxx</span>
-		Privilegi autenticazione: <span sec:authentication="principal.authorities">yyy</span>
+		
+		<div>
+			AUTENTICAZIONE A NOME: <span sec:authentication="name">xxx</span>
+		</div>
+		
+		<div>
+			PRIVILEGI: <span sec:authentication="principal.authorities">yyy</span>
+		</div>
 	
 	</body>
 

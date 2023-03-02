@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link th:replace="~{fragments :: head}"></link>
+	<title>Modifica foto</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h1>Modifica foto</h1>
+		
+		<form id="foto-form" th:object="${foto}" th:action="@{'/fotos/edit/' + ${foto.id} }" method="post">
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li class="text-danger" th:each="err : ${#fields.allErrors()}" th:text="${err}"></li>
+					</ul>
+					
+					<input type="number" id="id" th:field="*{id}" th:errorClass="is-invalid" class="d-none">
+					
+					<label for="titolo">Titolo</label>
+					<input type="text" id="titolo" th:field="*{titolo}" th:errorClass="is-invalid">
+					<div th:if="${#fields.hasErrors('titolo')}" class="invalid-feedback">
+						<ul>
+			   				<li th:each="err : ${#fields.errors('titolo')}" th:text="${err}"></li>
+						</ul>
+  					</div>
+					
+					<label for="tag">Tag foto</label>
+					<input type="text" id="tag" th:field="*{tag}" th:errorClass="is-invalid">
+					<div th:if="${#fields.hasErrors('tag')}" class="invalid-feedback">
+						<ul>
+			   				<li th:each="err : ${#fields.errors('tag')}" th:text="${err}"></li>
+						</ul>
+  					</div>
+					
+					<label for="url">Indirizzo URL foto</label>
+					<input type="text" id="url" th:field="*{url}">
+					
+					<label for="visibile">Visibile</label>
+					<input type="checkbox" id="visibile" th:field="*{visibile}">
+					
+					<a th:href="@{'/fotos'}">Annulla modifica</a>
+					
+					<input type="submit">
+				</div>
+			</div>
+		</form>
+	</div>
+	
+</body>
+
+</html>
