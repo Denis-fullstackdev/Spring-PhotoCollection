@@ -2,11 +2,13 @@ package com.corsojava.springboot.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +26,9 @@ public class Foto {
 	private String tag;
 	
 	private boolean visibile;
+	
+	@OneToMany(mappedBy = "foto", cascade = CascadeType.ALL)
+	private List<Commento> commentos;
 	
 	@ManyToMany()
 	private List<Categoria> categorias;
@@ -66,6 +71,22 @@ public class Foto {
 
 	public void setVisibile(boolean visibile) {
 		this.visibile = visibile;
+	}
+
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+
+	public List<Commento> getCommentos() {
+		return commentos;
+	}
+
+	public void setCommentos(List<Commento> commentos) {
+		this.commentos = commentos;
 	}
 
 }
