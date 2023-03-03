@@ -1,6 +1,7 @@
 package com.corsojava.springboot.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,13 +24,19 @@ public class FotoController {
 	private FotoRepository fotoRepository;
 	
 	@GetMapping
-	public String index(@RequestParam(name="keyword", required=false) String keyword, Model model) {
+	public String index(@RequestParam Map<String,String> requestParams, Model model) {
 		List<Foto> filtro;
+		
+		String keyword=requestParams.get("keyword");
+		String fieldFilter=requestParams.get("fieldFilter");
 		
 		if ( keyword == null || keyword.isEmpty() )
 			filtro = fotoRepository.findAll();
 		else
-			filtro = fotoRepository.findByTitoloLike("%" + keyword + "%");
+			if (fieldFilter.equals("titolo"))
+				filtro = fotoRepository.findByTitoloLike("%" + keyword + "%");
+			else
+				filtro = fotoRepository.findByTagLike("%" + keyword + "%");
 		
 		model.addAttribute("fotos", filtro);
 		

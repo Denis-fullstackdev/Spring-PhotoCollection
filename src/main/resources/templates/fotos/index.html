@@ -12,12 +12,25 @@
 		
 		<div th:replace="~{fragments :: navbar('fotos')}"></div>
 	
-		<h1>Collezione delle foto</h1>
+		<h1 class="m-3">Collezione delle foto</h1>
 		
-		<form action="/fotos">
-			<label>Filtra foto: </label>
-			<input type="text" name="keyword">
-			<input type="submit">
+		<form action="/fotos" class="d-flex justify-content-around border p-2 m-2">
+			<div>
+				<label>Filtra foto: </label>
+				<input type="text" name="keyword">
+			</div>
+			
+			<div>
+				<label for="titolo">per Titolo</label>
+				<input type="radio" name="fieldFilter" id="titolo" value="titolo" checked>
+			</div>
+			
+			<div>
+				<label for="tag">per Tag</label>
+				<input type="radio" name="fieldFilter" id="tag" value="tag">
+			</div>
+			
+			<input type="submit" value="Filtra">
 		</form>
 		
 		<h3><a th:href="@{'fotos/create'}" sec:authorize="hasAuthority('ADMIN')">Inserisci nuova foto</a></h3>
