@@ -57,5 +57,11 @@ public class CategoriaController {
 		categoriaRepository.save(formCategoria);
 		return "redirect:/categorias";	
 	}
+	
+	@PostMapping("/delete/{id}")
+	public String delete(@PathVariable("id") Integer id) {
+		categoriaRepository.deleteById(id);
+		return "redirect:/categorias";
+	}
 
 }
