@@ -21,13 +21,13 @@ public class Commento {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotEmpty(message="Username obbligatorio")
-	@NotNull(message="Username obbligatorio")
-	@Size(min=4, max=40, message="Deve avere dimensione minimo 4 a massimo 40 caratteri.")
+//	@NotEmpty(message="Username obbligatorio")
+//	@NotNull(message="Username obbligatorio")
+//	@Size(min=4, max=40, message="Deve avere dimensione minimo 4 a massimo 40 caratteri.")
 	private String user;
 	
-	@NotEmpty(message="Contenuto obbligatorio")
-	@NotNull(message="Contenuto obbligatorio")
+//	@NotEmpty(message="Contenuto obbligatorio")
+//	@NotNull(message="Contenuto obbligatorio")
 	private String content;
 	
 	@JsonBackReference

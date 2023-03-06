@@ -15,6 +15,10 @@
 		<h2 class="m-5">Inserisci Categoria</h2>
 
 		<form class="m-5" id="categoria-form" th:object="${categoria}" th:action="@{/categorias/create}" method="post">
+		
+			<ul>
+				<li class="text-danger border" th:each="err : ${#fields.allErrors()}" th:text="${err}"></li>
+			</ul>
 			
 			<label for="nome">Nome</label>
 			<input type="text" id="nome" th:field="*{nome}">
