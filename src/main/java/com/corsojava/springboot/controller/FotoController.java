@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.corsojava.springboot.model.Categoria;
 import com.corsojava.springboot.model.Foto;
+import com.corsojava.springboot.repository.CategoriaRepository;
 import com.corsojava.springboot.repository.FotoRepository;
 
 @Controller
@@ -22,6 +25,9 @@ public class FotoController {
 	
 	@Autowired
 	private FotoRepository fotoRepository;
+	
+	@Autowired
+	private CategoriaRepository categoriaRepository;
 	
 	@GetMapping
 	public String index(@RequestParam Map<String,String> requestParams, Model model) {
@@ -51,8 +57,10 @@ public class FotoController {
 	
 	@GetMapping("/create")
 	public String create(Model model) {
-		Foto foto = new Foto();	
+		Foto foto = new Foto();
+		List<Categoria> listaCategorias = categoriaRepository.findAll(Sort.by("nome"));
 		model.addAttribute("foto", foto);
+		model.addAttribute("listaCategorias", listaCategorias);
 		return "/fotos/create";
 	}
 	
@@ -65,7 +73,9 @@ public class FotoController {
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable("id") Integer id, Model model) {
 		Foto foto = fotoRepository.getReferenceById(id);
+		List<Categoria> listaCategorias = categoriaRepository.findAll(Sort.by("nome"));
 		model.addAttribute("foto", foto);
+		model.addAttribute("listaCategorias", listaCategorias);
 		return "/fotos/edit";
 	}
 	

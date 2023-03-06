@@ -48,7 +48,7 @@ public class CategoriaController {
 		if(categoria.isEmpty()) {
 			return "redirect:/categorias";
 		}
-		model.addAttribute("categoria",categoria.get());
+		model.addAttribute("categoria", categoria.get());
 		return "categorias/edit";
 	}
 	

@@ -14,10 +14,19 @@ public class SecurityConfiguration {
 	
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests()
+		http.csrf().disable().authorizeHttpRequests()
+		
 			.requestMatchers("/fotos", "/fotos/**").hasAuthority("ADMIN")
+			
 			.requestMatchers(HttpMethod.POST, "/fotos/**").hasAuthority("ADMIN")
+			
 			.requestMatchers("/**").permitAll()
+			
+//			.and().csrf().ignoringRequestMatchers(request ->
+//				request.getRequestURI().equals("/api/fotos") &&
+//				request.getMethod().equals("POST")).ignoringRequestMatchers(request ->
+//				request.getRequestURI().startsWith("/api/fotos/") &&
+//				request.getMethod().equals("DELETE"))
 			.and().formLogin()
 			.and().logout()
 			.and().exceptionHandling()

@@ -1,5 +1,7 @@
 package com.corsojava.springboot.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +22,7 @@ public class Commento {
 	
 	private String content;
 	
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Foto foto;
 
