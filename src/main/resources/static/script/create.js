@@ -7,7 +7,8 @@ function createCommento(event) {
 	
 	const commento = {
 		fotoId : document.querySelector('#foto_id').value,
-		content : document.querySelector('#content').value
+		content : document.querySelector('#content').value,
+		user : document.querySelector('#user').value
 	};
 	
 	axios.post(`http://localhost:8080/api/4/create`, commento).then((res) => {
