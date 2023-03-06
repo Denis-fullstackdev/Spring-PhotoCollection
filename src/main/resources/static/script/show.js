@@ -5,6 +5,22 @@ console.log("foto ID: ", fotoId);
 
 fotoReload(fotoId);
 
+function createCommento() {
+	
+	const commento = {
+		content : document.querySelector('#content').value,
+		user : document.querySelector('#user').value
+	};
+	
+	axios.post(`http://localhost:8080/api/${fotoId}/create`, commento).then((res) => {
+		console.log("OK CREATE COMMENTO");
+		fotoReload(fotoId);
+	}).catch((res) => {
+		console.log("ERRORE CREATE COMMENTO", res);
+	})
+	
+}
+
 function fotoReload(fotoId) {
 	
 	axios.get(`http://localhost:8080/api/${fotoId}`).then((result) => {
