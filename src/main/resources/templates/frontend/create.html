@@ -14,7 +14,7 @@
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
-    <script src="../script/show.js" defer></script>
+    <script src="../script/create.js" defer></script>
 
     <!-- STA FUNZIONANDO SENZA DEFER -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
@@ -22,7 +22,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <title>Show Page - Dettaglio Foto</title>
+    <title>Create Page - Inserisci Commento</title>
 
 </head>
 
@@ -30,19 +30,15 @@
 
     <div class="container">
 
-        <div class="d-flex align-items-center">
-            Titolo Foto: <h1 id="titolo"></h1>
-        </div>
-
-        <div> ID Foto: <span id="id"></span></div>
-
-        <div> Tag: <span id="tag"></span></div>
-
-        <div> URL: <span id="url"></span></div>
-        
-        <div>
-        	<a href="/frontend/create">INSERISCI COMMENTO</a>
-        </div>
+		<form id="commento-form" method="post" onsubmit="createCommento(event)">
+			
+			<div id="foto_id"></div>
+		
+			<input type="text" value="inserisci commento..." id="content">
+			<input type="submit" value="Invia commento">
+		</form>
+		
+		<a href="/frontend">Torna alla lista foto</a>
 
     </div>
 

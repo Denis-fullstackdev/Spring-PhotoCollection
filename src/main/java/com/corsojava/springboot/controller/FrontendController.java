@@ -17,5 +17,10 @@ public class FrontendController {
 	public String show() {
 		return "/frontend/show";
 	}
+	
+	@GetMapping("/create")
+	public String create() {
+		return "/frontend/create";
+	}
 
 }
