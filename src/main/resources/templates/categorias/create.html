@@ -12,9 +12,9 @@
 
 		<div th:replace="~{fragments :: navbar('createCategoria')}"></div>
 		
-		<h2>Inserisci Categoria</h2>
+		<h2 class="m-5">Inserisci Categoria</h2>
 
-		<form id="categoria-form" th:object="${categoria}" th:action="@{/categorias/create}" method="post">
+		<form class="m-5" id="categoria-form" th:object="${categoria}" th:action="@{/categorias/create}" method="post">
 			
 			<label for="nome">Nome</label>
 			<input type="text" id="nome" th:field="*{nome}">

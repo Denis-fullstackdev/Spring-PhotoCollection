@@ -12,9 +12,9 @@
 		
 		<div th:replace="~{fragments :: navbar('fotos')}"></div>
 	
-		<h1 class="m-3">Collezione delle foto</h1>
+		<h1 class="m-5">Collezione delle foto</h1>
 		
-		<form action="/fotos" class="d-flex justify-content-around border p-2 m-2">
+		<form action="/fotos" class="d-flex justify-content-around border m-5">
 			<div>
 				<label>Filtra foto: </label>
 				<input type="text" name="keyword">
@@ -33,12 +33,12 @@
 			<input type="submit" value="Filtra">
 		</form>
 		
-		<h3><a th:href="@{'fotos/create'}" sec:authorize="hasAuthority('ADMIN')">Inserisci nuova foto</a></h3>
+		<h3><a th:href="@{'fotos/create'}" sec:authorize="hasAuthority('ADMIN')" class="m-5">Inserisci nuova foto</a></h3>
 		
-		<h2 th:if="${fotos.size()==0}">
+		<h2 class="m-5" th:if="${fotos.size()==0}">
 			Nessuna foto trovata.
 		</h2>
-		<table class="table table-striped table-bordered" th:unless="${fotos.size()==0}">
+		<table class="table table-striped table-bordered m-5" th:unless="${fotos.size()==0}">
 		  <thead>
 		    <tr>
 		      <th scope="col">ID</th>

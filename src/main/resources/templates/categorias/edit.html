@@ -12,9 +12,9 @@
 
 		<div th:replace="~{fragments :: navbar('editCategoria')}"></div>
 		
-		<h2>Modifica Categoria</h2>
+		<h2 class="m-5">Modifica Categoria</h2>
 
-		<form id="categoria-form" th:object="${categoria}" th:action="@{ |/categorias/edit/${categoria.id}| }" method="post">
+		<form class="m-5" id="categoria-form" th:object="${categoria}" th:action="@{ |/categorias/edit/${categoria.id}| }" method="post">
 			
 			<input type="number" id="id" th:field="*{id}" class="d-none">
 			

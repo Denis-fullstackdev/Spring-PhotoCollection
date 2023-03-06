@@ -28,27 +28,29 @@
 
 <body>
 
-    <div class="container">
+    <div class="container m-5">
     
-    	<a href="/frontend">Torna alla lista foto</a>
+    	<a href="/frontend" class="m-5 border">Torna alla lista foto</a>
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center m-5 border">
             Titolo Foto: <h1 id="titolo"></h1>
         </div>
 
-        <div> ID Foto: <span id="id"></span></div>
-
-        <div> Tag: <span id="tag"></span></div>
-
-        <div> URL: <span id="url"></span></div>
+		<div class="m-5 border">
+	        <div> ID Foto: <span id="id"></span></div>
+	
+	        <div> Tag: <span id="tag"></span></div>
+	
+	        <div> URL: <span id="url"></span></div>
+        </div>
         
-        <div>
+        <div class="m-5 border">
         	<input id="user" type="text" value="Inserisci nome">
         	<input type="text" value="inserisci commento..." id="content">
         	<button class="btn btn-primary" onclick="createCommento()">Commenta Foto</button>
         </div>
         
-        <div id="commentos"></div>
+        <div id="commentos" class="m-5 border"></div>
 
     </div>
 

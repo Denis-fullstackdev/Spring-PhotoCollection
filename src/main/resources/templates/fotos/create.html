@@ -10,25 +10,35 @@
 
 	<div class="container">
 	
-		<h1>Nuova foto</h1>
+		<h1 class="m-5 d-flex justify-content-center">Nuova foto</h1>
 		
-		<form id="foto-form" th:object="${foto}" th:action="@{'/fotos/create'}" method="post">
+		<form class="m-5" id="foto-form" th:object="${foto}" th:action="@{'/fotos/create'}" method="post">
 			<div class="row">
 				<div class="col">
 					
-					<label for="titolo">Titolo</label>
-					<input type="text" id="titolo" th:field="*{titolo}">
+					<div class="d-flex flex-column align-items-end">
+						<div class="m-1">
+							<label for="titolo">Titolo</label>
+							<input type="text" id="titolo" th:field="*{titolo}">
+						</div>
+						
+						<div class="m-1">
+							<label for="tag">Tag foto</label>
+							<input type="text" id="tag" th:field="*{tag}">
+						</div>
+						
+						<div class="m-1">
+							<label for="url">Indirizzo URL foto</label>
+							<input type="text" id="url" th:field="*{url}">
+						</div>
+						
+						<div class="m-1">
+							<label for="visibile">Visibile</label>
+							<input type="checkbox" id="visibile" th:field="*{visibile}">
+						</div>
+					</div>
 					
-					<label for="tag">Tag foto</label>
-					<input type="text" id="tag" th:field="*{tag}">
-					
-					<label for="url">Indirizzo URL foto</label>
-					<input type="text" id="url" th:field="*{url}">
-					
-					<label for="visibile">Visibile</label>
-					<input type="checkbox" id="visibile" th:field="*{visibile}">
-					
-					<div class="border m-5">
+					<div class="m-5">
 						<h3>Categoria/e foto:</h3>
 						<div th:each="categoria : ${listaCategorias}">
 							<label>[[ ${categoria.nome} ]]</label>
@@ -36,9 +46,11 @@
 						</div>
 					</div>
 					
-					<a th:href="@{'/fotos'}">Annulla modifica</a>
+					<div class="m-5 d-flex justify-content-center">
+						<a class="m-1" th:href="@{'/fotos'}">Annulla modifica</a>
+						<input type="submit">
+					</div>
 					
-					<input type="submit">
 				</div>
 			</div>
 		</form>
