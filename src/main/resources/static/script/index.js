@@ -52,6 +52,7 @@ function elencoFotos() {
                 </td>
                 <td>${foto.tag}</td>
                 <td>${foto.url}</td>
+                <td><img src=${foto.url} alt=${foto.titolo} class="card-img-top"></td>
             </tr>
             `
         });

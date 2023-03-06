@@ -32,6 +32,7 @@ function fotoReload(fotoId) {
 	    document.querySelector("#titolo").innerHTML = foto.titolo;
 	    document.querySelector("#tag").innerHTML = foto.tag;
 	    document.querySelector("#url").innerHTML = foto.url;
+	    document.querySelector("#url").innerHTML = `<img src=${foto.url} alt=${foto.titolo} class="card-img-top">`
 	    
 	    if(foto.commentos.length >= 1) {
 			document.querySelector('#commentos').innerHTML = '';

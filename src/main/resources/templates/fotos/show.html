@@ -21,6 +21,7 @@
 		      <th scope="col">Titolo</th>
 		      <th scope="col">Tag</th>
 		      <th scope="col">URL</th>
+		      <th scope="col">Foto</th>
 		      <th scope="col">Visibile</th>
 		      <th scope="col">Categorie</th>
 		    </tr>
@@ -30,8 +31,9 @@
 		      <th scope="row" th:text="${foto.id}"></th>
 		      <td th:text="${foto.titolo}"></td>
 		      <td th:text="${foto.tag}"></td>
+		      <td th:text="${foto.url}"></td>
 		      <td>
-		      	<img th:src="${foto.url}" th:alt="${foto.titolo}">
+		      	<img th:src="${foto.url}" class="card-img-top" th:alt="${foto.titolo}">
 		      </td>
 		      <td th:text="${foto.visibile}"></td>
 		      <td>
@@ -39,7 +41,7 @@
 		      	<div th:if="${foto.categorias.size()>0}">
 		      		<div th:each="categoria : ${foto.categorias}" class="border m-1">
 			      		<div th:text="${categoria.id}"></div>
-			      		<div th:text="${categoria.titolo}"></div>
+			      		<div th:text="${categoria.nome}"></div>
 		      		</div>
 		      	</div>
 		      </td>

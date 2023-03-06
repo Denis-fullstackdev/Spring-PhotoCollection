@@ -45,6 +45,7 @@
 		      <th scope="col">Titolo</th>
 		      <th scope="col">Tag</th>
 		      <th scope="col">Url</th>
+		      <th scope="col">Img</th>
 		      <th scope="col">Visibile</th>
 		      <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
 		      <th scope="col" sec:authorize="hasAuthority('ADMIN')"></th>
@@ -56,6 +57,9 @@
 		      <td><a th:href="@{'fotos/'+${foto.id}}" th:text="${foto.titolo}"></a></td>
 		      <td th:text="${foto.tag}"></td>
 		      <td th:text="${foto.url}"></td>
+		      <td>
+		      	<img th:src="${foto.url}" class="card-img-top" th:alt="${foto.titolo}">
+		      </td>
 		      <td th:text="${foto.visibile}"></td>
 		      <td sec:authorize="hasAuthority('ADMIN')">
 		      	<a th:href="@{'/fotos/edit/' + ${foto.id} }">Modifica</a>
