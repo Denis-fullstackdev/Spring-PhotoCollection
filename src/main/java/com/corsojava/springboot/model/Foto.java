@@ -10,6 +10,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="fotos")
@@ -19,10 +22,18 @@ public class Foto {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotEmpty(message="Titolo obbligatorio")
+	@NotNull(message="Titolo obbligatorio")
+	@Size(min=5, max=100, message="Deve avere dimensione minimo 5 a massimo 100 caratteri.")
 	private String titolo;
 	
+	@NotEmpty(message="URL obbligatorio")
+	@NotNull(message="URL obbligatorio")
 	private String url;
 	
+	@NotEmpty(message="Tag obbligatorio")
+	@NotNull(message="Tag obbligatorio")
+	@Size(min=4, max=20, message="Deve avere dimensione minimo 4 a massimo 20 caratteri.")
 	private String tag;
 	
 	private boolean visibile;

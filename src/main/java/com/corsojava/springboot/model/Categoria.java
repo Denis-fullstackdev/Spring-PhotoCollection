@@ -13,6 +13,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="categorias")
@@ -22,6 +25,9 @@ public class Categoria {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotEmpty(message="Nome obbligatorio")
+	@NotNull(message="Nome obbligatorio")
+	@Size(min=4, max=20, message="Deve avere dimensione minimo 4 a massimo 20 caratteri.")
 	private String nome;
 	
 	@JsonBackReference
