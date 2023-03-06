@@ -35,7 +35,7 @@ function fotoReload(fotoId) {
 	    
 	    if(foto.commentos.length >= 1) {
 			document.querySelector('#commentos').innerHTML = '';
-			foto.commentos.forEach( commento => {
+			foto.commentos.slice().reverse().forEach( commento => {
 				document.querySelector('#commentos').innerHTML +=
 				`
 					<div class="m-2 border">
