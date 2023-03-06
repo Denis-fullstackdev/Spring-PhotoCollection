@@ -24,7 +24,7 @@ public class Foto {
 	
 	@NotEmpty(message="Titolo obbligatorio")
 	@NotNull(message="Titolo obbligatorio")
-	@Size(min=5, max=100, message="Deve avere dimensione minimo 5 a massimo 100 caratteri.")
+	@Size(min=5, max=100, message="Titolo: Deve avere dimensione minimo 5 a massimo 100 caratteri.")
 	private String titolo;
 	
 	@NotEmpty(message="URL obbligatorio")
@@ -33,7 +33,7 @@ public class Foto {
 	
 	@NotEmpty(message="Tag obbligatorio")
 	@NotNull(message="Tag obbligatorio")
-	@Size(min=4, max=20, message="Deve avere dimensione minimo 4 a massimo 20 caratteri.")
+	@Size(min=4, max=20, message="Tag: Deve avere dimensione minimo 4 a massimo 20 caratteri.")
 	private String tag;
 	
 	private boolean visibile;

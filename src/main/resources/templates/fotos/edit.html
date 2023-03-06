@@ -15,7 +15,7 @@
 		<form class="m-5" id="foto-form" th:object="${foto}" th:action="@{'/fotos/edit/' + ${foto.id} }" method="post">
 			<div class="row">
 				<div class="col">
-					<ul>
+					<ul class="border">
 						<li class="text-danger" th:each="err : ${#fields.allErrors()}" th:text="${err}"></li>
 					</ul>
 					

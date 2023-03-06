@@ -15,6 +15,9 @@
 		<form class="m-5" id="foto-form" th:object="${foto}" th:action="@{'/fotos/create'}" method="post">
 			<div class="row">
 				<div class="col">
+					<ul class="border">
+						<li class="text-danger" th:each="err : ${#fields.allErrors()}" th:text="${err}"></li>
+					</ul>
 					
 					<div class="d-flex flex-column align-items-end">
 						<div class="m-1">

@@ -70,8 +70,8 @@ public class FotoController {
 	@PostMapping("/create")
 	public String store(@Valid @ModelAttribute("foto") Foto formFoto, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {
-			List<Categoria> categorias = categoriaRepository.findAll();
-			model.addAttribute("categorias", categorias);
+			List<Categoria> listaCategorias = categoriaRepository.findAll(Sort.by("nome"));
+			model.addAttribute("listaCategorias", listaCategorias);
 			return "/fotos/create";
 		}
 		fotoRepository.save(formFoto);
