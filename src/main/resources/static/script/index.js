@@ -20,7 +20,9 @@ else {
 	            `
 	            <tr>
 	            	<td>${foto.id}</td>
-	                <td>${foto.titolo}</td>
+	                <td>
+	                	<a href="show.html?id=${foto.id}">${foto.titolo}</a>
+	                </td>
 	                <td>${foto.tag}</td>
 	                <td>${foto.url} €</td>
 	            </tr>
@@ -45,7 +47,9 @@ function elencoFotos() {
                 `
             <tr>
             	<td>${foto.id}</td>
-                <td>${foto.titolo}</td>
+                <td>
+                	<a href="frontend/show?id=${foto.id}">${foto.titolo}</a>
+                </td>
                 <td>${foto.tag}</td>
                 <td>${foto.url}</td>
             </tr>

@@ -12,5 +12,10 @@ public class FrontendController {
 	public String index() {
 		return "/frontend/index";
 	}
+	
+	@GetMapping("/show")
+	public String show() {
+		return "/frontend/show";
+	}
 
 }

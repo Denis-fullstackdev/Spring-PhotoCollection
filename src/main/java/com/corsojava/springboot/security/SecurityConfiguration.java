@@ -23,9 +23,9 @@ public class SecurityConfiguration {
 			.requestMatchers("/**").permitAll()
 			
 //			.and().csrf().ignoringRequestMatchers(request ->
-//				request.getRequestURI().equals("/api/fotos") &&
+//				request.getRequestURI().equals("/api") &&
 //				request.getMethod().equals("POST")).ignoringRequestMatchers(request ->
-//				request.getRequestURI().startsWith("/api/fotos/") &&
+//				request.getRequestURI().startsWith("/api/") &&
 //				request.getMethod().equals("DELETE"))
 			.and().formLogin()
 			.and().logout()

@@ -2,6 +2,7 @@ package com.corsojava.springboot.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,6 +47,16 @@ public class ApiController {
 		else
 			return new ResponseEntity<List<Foto>>(HttpStatus.NO_CONTENT);
 		
+	}
+	
+	@GetMapping("{id}")
+	public ResponseEntity<Foto> show(@PathVariable("id") Integer id) {
+		Optional<Foto> result = fotoRepository.findById(id);
+		if (result.isPresent()) {
+			return new ResponseEntity<Foto>(result.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Foto>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 }
