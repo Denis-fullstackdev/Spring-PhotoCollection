@@ -1,0 +1,17 @@
+.size-100{
+	width: 300px;
+	height: auto;
+}
+
+.sixend-background{
+	background-image: url("https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg");
+	background-size: cover;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+#sixend-scrollbar{
+	height: 350px;
+	overflow-y: scroll;
+}

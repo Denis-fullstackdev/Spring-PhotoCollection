@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
@@ -27,13 +29,13 @@
 </head>
 
 <body>
-
+	
     <div class="container m-5">
     
     	<a href="/frontend" class="m-5 border">Torna alla lista foto</a>
 
         <div class="d-flex align-items-center m-5 border">
-            Titolo Foto: <h1 id="titolo"></h1>
+            Titolo Foto: <h1 id="titolo" class="ms-3"></h1>
             <span id="foto"></span>
         </div>
 
@@ -42,7 +44,9 @@
 	
 	        <div> Tag: <span id="tag"></span></div>
 	
-	        <div> URL: <span id="url"></span></div>
+	        <div><span id="link"></span></div>
+	        
+	        <div><span id="url"></span></div>
         </div>
         
         <div class="m-5 border">

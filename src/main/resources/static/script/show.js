@@ -31,8 +31,8 @@ function fotoReload(fotoId) {
 	    document.querySelector("#id").innerHTML = foto.id;
 	    document.querySelector("#titolo").innerHTML = foto.titolo;
 	    document.querySelector("#tag").innerHTML = foto.tag;
-	    document.querySelector("#url").innerHTML = foto.url;
-	    document.querySelector("#url").innerHTML = `<img src=${foto.url} alt=${foto.titolo} class="card-img-top">`
+	    document.querySelector("#link").innerHTML = `<a href=${foto.url}>Link al file foto originale</a>`;
+	    document.querySelector("#url").innerHTML = `<img src=${foto.url} alt=${foto.titolo} class="card-img-top">`;
 	    
 	    if(foto.commentos.length >= 1) {
 			document.querySelector('#commentos').innerHTML = '';

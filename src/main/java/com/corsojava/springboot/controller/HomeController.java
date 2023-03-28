@@ -11,7 +11,7 @@ public class HomeController {
 	
 	@GetMapping
 	public String home() {
-		return "redirect:fotos";
+		return "redirect:frontend";
 	}
 	
 	@GetMapping("/testTLS")
